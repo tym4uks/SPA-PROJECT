@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+
 
 function Products() {
 const cardsData = 
@@ -15,14 +15,14 @@ const [isFavFiltred, setIsFavFiltred] = useState(false);
 const cards = [];
   for (let i = 0; i < filtredData.length; i++) {
     cards.push(
-        <Link to="/products/1">
+
       <MyCard key={filtredData[i].id}
         title={filtredData[i].title}
         content={filtredData[i].content}
         isFav={filtredData[i].isFav}
         id={filtredData[i].id}
         />
-        </Link>
+
     );
   }
 

@@ -11,6 +11,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch } from 'react-redux';
 import { updateCard, deleteCard } from '../store/actions/cardActions';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function MyCard({title, content, isFav, id}) {
   const dispatch = useDispatch(); //всегда первой строчкой
@@ -24,6 +25,7 @@ export default function MyCard({title, content, isFav, id}) {
 
   return (
     <Card sx={{ maxWidth: 345 }}>
+      <Link to={'/products/'+id}>
       <CardMedia
         sx={{ height: 140 }}
         image="/static/images/cards/contemplative-reptile.jpg"
@@ -37,6 +39,7 @@ export default function MyCard({title, content, isFav, id}) {
          {content}
         </Typography>
       </CardContent>
+      </Link>
       <CardActions>
 
         <IconButton aria-label="add to favorites" onClick={() => toggleFav(!isFav)}> 
