@@ -1,5 +1,4 @@
 //Конфигурационный файл
-
 import { CARD_ACTION_TYPES } from '../constans/actionTypes'
 
 // Начальное состояние
@@ -42,13 +41,15 @@ const cardReducer = (state = initialState, action) => {
       }
 
     case CARD_ACTION_TYPES.UPDATE_CARD:
+      console.log(action.payload.cardId)
+      console.log(action.payload.updates)
       return {
         ...state,
         cards: state.cards.map(card =>
           card.id === action.payload.cardId
             ? { ...card, ...action.payload.updates }
             : card
-        )
+        )               
       }
 
 
