@@ -12,19 +12,38 @@ import { updateCard, deleteCard } from '../store/actions/cardActions';
 import { Link } from 'react-router-dom';
 
 function CardPage() {
+
   const dispatch = useDispatch(); //всегда первой строчкой
   const { id } = useParams();
   const product = useSelector(state => 
     state.cards.find(item => item.id === Number(id))
   );
-  const [title, setTitle] = useState(product.title);
-  const [content, setContent] = useState(product.content);
+  const [isfavourite, setisFavourite] = useState(product===undefined ? false: product.isFav);
+  const [title, setTitle] = useState(product===undefined ?"Удалиль :3": product.title);
+  const [content, setContent] = useState(product===undefined ?"Удалиль :3": product.content);
   const saveCard = (title, content) => {
     dispatch(updateCard(Number(id), {
      title: title,
      content: content
     }));
   };
+  const deleteC = () => {
+      dispatch(deleteCard(Number(id)));
+    };
+
+  useEffect(() => {
+    if (product===undefined){
+        setTitle("Удалиль :3");
+        setContent("Удалиль :3");
+    }    
+  }, [product]);
+
+    const toggleFav = (isFav) => {
+      setisFavourite(isFav)
+      dispatch(updateCard(Number(id), {
+       isFav: isFav
+      }));
+    };
 
   return (
   //  <span>{id}</span>
@@ -33,7 +52,7 @@ function CardPage() {
       <Link to={'/products'}>
       <Button 
       onClick={()=>saveCard(title,content)}
-      >НозАд</Button></Link>
+      >Назад</Button></Link>
 
     <img width={300} height={200} src={"https://img.freepik.com/premium-vector/soft-pink-clouds-cutout-flat-vector-illustration_674398-2928.jpg?semt=ais_hybrid&w=740"}></img>
         <TextField
@@ -52,12 +71,12 @@ function CardPage() {
           onChange={(e) => setContent(e.target.value)}
         />
 
-  <Box display="flex" flexDirection="row" gap={1}>
-        <IconButton aria-label="add to favorites" > 
-          <FavoriteIcon style={{color: product.isFav && 'red'}}/>
+  <Box display="flex" flexDirection="row" gap={1} v-if="product===undefined">
+        <IconButton aria-label="add to favorites" onClick={() => toggleFav(!isfavourite)}> 
+          <FavoriteIcon style={{color: isfavourite && 'red'}}/>
         </IconButton>
         
-        <IconButton aria-label="delete-card"> 
+        <IconButton aria-label="delete-card" onClick={() => deleteC()}> 
           <DeleteIcon /> 
         </IconButton>
   </Box>

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import React, { useState, useEffect } from 'react';
-
+import { Link } from 'react-router-dom';
 
 function Products() {
 const cardsData = 
@@ -37,6 +37,7 @@ const showAll= () => {
     setIsFavFiltred(false)
     };
 
+// принудительно обновляет что-то на странице
 useEffect(() => {
     if (isFavFiltred){
         setfilteredData(cardsData.filter(item => item.isFav));
@@ -51,8 +52,12 @@ useEffect(() => {
 return (
   <>
   <Box> <Button onClick={() => showAll()}>Показать всё</Button> 
-        <Button onClick={() => showFav()}>Показать Избранное</Button></Box>
-
+        <Button onClick={() => showFav()}>Показать Избранное</Button>
+      <Link to={'/create-product'}>
+      <Button 
+      >Создать</Button></Link>
+        </Box>
+        
   <Box><div className="card-list">{cards}</div></Box></>
 
   );

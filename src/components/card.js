@@ -21,7 +21,9 @@ export default function MyCard({title, content, isFav, id}) {
      isFav: isFav
     }));
   };
-  
+   const deleteC = () => {
+    dispatch(deleteCard(id));
+  };
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -46,7 +48,7 @@ export default function MyCard({title, content, isFav, id}) {
           <FavoriteIcon style={{color: isFav && 'red'}}/>
         </IconButton>
         
-        <IconButton aria-label="delete-card"> 
+        <IconButton aria-label="delete-card" onClick={() => deleteC()}> 
           <DeleteIcon /> 
         </IconButton>
         
