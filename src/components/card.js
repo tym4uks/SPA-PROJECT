@@ -37,7 +37,16 @@ export default function MyCard({title, content, isFav, id}) {
         <Typography gutterBottom variant="h5" component="div">
           {title}
         </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        <Typography variant="body2"   sx={{
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    display: '-webkit-box',
+    WebkitLineClamp: 3, // Показывать только 3 строки
+    WebkitBoxOrientation: 'vertical',
+    lineHeight: 1.5, // Для точного расчета высоты
+    maxHeight: '4.5em', // 3 строки * 1.5 line-height
+         }}
+>
          {content}
         </Typography>
       </CardContent>
