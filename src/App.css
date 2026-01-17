@@ -1,3 +1,90 @@
+body{
+background-color: #EAEAEA;
+
+}
+.card-list{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin: auto;
+  max-width: 800px;
+}
+
+.CardsInfo {
+  position: relative;
+  width: 300px;
+  height: 70px;
+}
+
+.ProductTitle {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+font-family: Palatino Linotype; 
+font-weight: 600;
+font-style: Bold;
+font-size: 17px;
+line-height: 100%;
+letter-spacing: 0%;
+
+}
+.ProductPrice {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: flex;
+  flex-direction: column;
+font-family: ;
+font-weight: 600;
+font-style: Bold;
+font-size: 17px;
+line-height: 100%;
+letter-spacing: 0%;
+
+
+}
+.ProductRating {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+font-family: ;
+font-weight: 600;
+font-style: Bold;
+font-size: 17px;
+line-height: 100%;
+letter-spacing: 0%;
+
+
+}
+.ProductBuy {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-family: ;
+font-weight: 600;
+font-style: ;
+font-size: 17px;
+line-height: 100%;
+letter-spacing: 0%;
+}
+
+.card{
+border-radius: 30px !important;
+padding: 30px;
+position: relative;
+}
+
+.card>img{
+    margin: 20px;
+    width: 300px;
+    height: 250px;
+}
+.card>div{
+   padding-top: 50px;
+}
 .App {
   text-align: center;
 }

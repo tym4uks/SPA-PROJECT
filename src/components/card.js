@@ -13,28 +13,30 @@ import { updateCard, deleteCard } from '../store/actions/cardActions';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function MyCard({title, content, isFav, id}) {
-  const dispatch = useDispatch(); //всегда первой строчкой
-  const [isfavourite, setisFavourite] = useState(isFav);
-  const toggleFav = (isFav) => {
-    dispatch(updateCard(id, {
-     isFav: isFav
-    }));
-  };
-   const deleteC = () => {
-    dispatch(deleteCard(id));
-  };
+import {ReactComponent as Star} from '../assets/Star.svg';
 
+
+export default function MyCard({card, id}) {
+  const dispatch = useDispatch(); //всегда первой строчкой
+
+  // // const [isfavourite, setisFavourite] = useState(isFav);
+  // // const toggleFav = (isFav) => {
+  // //   dispatch(updateCard(id, {
+  // //    isFav: isFav
+  // //   }));
+  // };
+  // // //  const deleteC = () => {
+  // // //   dispatch(deleteCard(id));
+  // // };
+  console.log(card.img);
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <Link to={'/products/'+id}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
-        title="SPAproject"
-      />
+    <Card sx={{ width: 350, height:407 }}
+      className='card'
+    >
+      {/* <Link to={'/products/'+id}> */}
+      <img src={card.img}></img>
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        {/* <Typography gutterBottom component="div">
           {title}
         </Typography>
         <Typography variant="body2"   sx={{
@@ -46,22 +48,46 @@ export default function MyCard({title, content, isFav, id}) {
     lineHeight: 1.5, // Для точного расчета высоты
     maxHeight: '4.5em', // 3 строки * 1.5 line-height
          }}
->
+> 
          {content}
         </Typography>
-      </CardContent>
-      </Link>
-      <CardActions>
+        */}
 
+      <div className='CardsInfo'>
+        {/* Наименование */}
+        <span className='ProductTitle'>
+        {card.title}
+        </span>
+
+        {/* Цена */}
+        <div className='ProductPrice'> 
+          <span style={{color: '#FFA542'}}>
+            {card.price}
+          </span>
+        </div>
+
+        {/* Рейтинг */}
+        <div className='ProductRating'>
+          <Star></Star>
+          <span style={{color: '#838383'}}>{card.rate}</span>
+        </div>
+
+        {/* Купить */}
+        <span className='ProductBuy'>
+          Купить
+        </span>
+        
+      </div>
+      </CardContent>
+      {/* </Link> */}
+      {/* <CardActions>
         <IconButton aria-label="add to favorites" onClick={() => toggleFav(!isFav)}> 
           <FavoriteIcon style={{color: isFav && 'red'}}/>
         </IconButton>
-        
-        <IconButton aria-label="delete-card" onClick={() => deleteC()}> 
+                <IconButton aria-label="delete-card" onClick={() => deleteC()}> 
           <DeleteIcon /> 
         </IconButton>
-        
-      </CardActions>
+              </CardActions> */}
     </Card>
   );
 }

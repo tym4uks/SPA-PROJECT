@@ -6,21 +6,45 @@ const initialState = {
   cards: [
     {
       id: 1,
-      title: 'Первая карточка',
-      content: 'Содержимое первой карточки',
-      isFav: false
+      img: "/assets/Image1.png",
+      title: 'Apple BYZ S852I',
+      price: 2927,
+      rate: 4.7,
     },
     {
       id: 2,
-      title: 'Вторая карточка',
-      content: 'Содержимое второй карточки',
-      isFav: true
+      img: "/assets/Image2.png",
+      title: 'Apple EarPods',
+      price: 2327,
+      rate: 4.5,
     },
     {
       id: 3,
-      title: 'Третья карточка',
-      content: 'Содержимое третьей карточки',
-      isFav: false
+      img: "/assets/Image3.png",
+      title: 'Apple EarPods',
+      price: 2927,
+      rate: 4.5,
+    },
+        {
+      id: 4,
+      img: "/assets/Image4.png",
+      title: 'Apple AirPods',
+      price: 5927,
+      rate: 4.7,
+    },
+        {
+      id: 5,
+      img: "/assets/Image5.png",
+      title: 'GERLAX GH-04',
+      price: 6527,
+      rate: 4.7,
+    },
+        {
+      id: 6,
+      img: "/assets/Image6.png",
+      title: 'BOROFONE BO4',
+      price: 7527,
+      rate: 4.7,
     }
   ]
 }

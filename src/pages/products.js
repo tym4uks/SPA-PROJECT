@@ -32,9 +32,7 @@ const cards = [];
     cards.push(
 
       <MyCard key={currentItems[i].id}
-        title={currentItems[i].title}
-        content={currentItems[i].content}
-        isFav={currentItems[i].isFav}
+        card={currentItems[i]}
         id={currentItems[i].id}
         />
 
