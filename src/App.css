@@ -1,7 +1,77 @@
 body{
 background-color: #EAEAEA;
-
 }
+.container_basket{
+  display: flex;
+  flex-direction: row;
+  width: 1200px;
+  margin:0 auto;
+}
+.basket_card{
+  border-radius: 30px !important;
+  padding: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  margin-bottom: 10px;
+}
+.currentCost{
+  background-color: #fff;
+  border-radius: 30px !important;
+  padding-top: 20px;
+  width: 300px;
+  height: 100px;
+}
+
+.currentCost>button{
+  background-color: #000;
+  color: #fff;
+  border-radius: 30px !important;
+  padding: 10px !important;
+  width: 300px;
+  height: 70px !important;
+  margin-top:10px;
+}
+.delete-icon{
+  position: absolute !important;
+  top: 20px !important;
+  right:20px !important;
+}
+.total-price{
+  display: inline-block;
+  position: absolute;
+  bottom: 20px;
+  right:20px;
+}
+.CardsInfoBasket{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.ProductCount{
+  display: flex;
+  flex-direction: row;
+}
+
+.round-button{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #FFD700; /* желтый цвет */
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
 .card-list{
   display: flex;
   flex-wrap: wrap;
@@ -15,7 +85,14 @@ background-color: #EAEAEA;
   width: 300px;
   height: 70px;
 }
-
+.ProductTitleBasket{
+  font-family: Palatino Linotype; 
+  font-weight: 600;
+  font-style: Bold;
+  font-size: 17px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
 .ProductTitle {
   position: absolute;
   top: 5px;

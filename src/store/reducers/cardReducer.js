@@ -10,6 +10,8 @@ const initialState = {
       title: 'Apple BYZ S852I',
       price: 2927,
       rate: 4.7,
+      inBasket: true,
+      countInBasket: 1,
     },
     {
       id: 2,
@@ -17,6 +19,8 @@ const initialState = {
       title: 'Apple EarPods',
       price: 2327,
       rate: 4.5,
+      inBasket: true,
+      countInBasket: 2,
     },
     {
       id: 3,
@@ -24,6 +28,8 @@ const initialState = {
       title: 'Apple EarPods',
       price: 2927,
       rate: 4.5,
+      inBasket: false,
+      countInBasket: 0,
     },
         {
       id: 4,
@@ -31,6 +37,8 @@ const initialState = {
       title: 'Apple AirPods',
       price: 5927,
       rate: 4.7,
+      inBasket: false,
+      countInBasket: 0,
     },
         {
       id: 5,
@@ -38,6 +46,8 @@ const initialState = {
       title: 'GERLAX GH-04',
       price: 6527,
       rate: 4.7,
+      inBasket: false,
+      countInBasket: 0,
     },
         {
       id: 6,
@@ -45,6 +55,8 @@ const initialState = {
       title: 'BOROFONE BO4',
       price: 7527,
       rate: 4.7,
+      inBasket: false,
+      countInBasket: 0,
     }
   ]
 }
