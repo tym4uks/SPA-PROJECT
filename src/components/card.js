@@ -28,7 +28,6 @@ export default function MyCard({card, id}) {
   // // //  const deleteC = () => {
   // // //   dispatch(deleteCard(id));
   // // };
-  console.log(card.img);
   return (
     <Card sx={{ width: 350, height:407 }}
       className='card'

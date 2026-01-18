@@ -1,4 +1,5 @@
 import MyCard from "../components/card";
+import MyHeader from "../components/header";
 import { useSelector } from 'react-redux';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -6,6 +7,8 @@ import Pagination from '@mui/material/Pagination'
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
+import {ReactComponent as Korzina} from '../assets/Korzina.svg';
+import {ReactComponent as Fav} from '../assets/Fav.svg';
 
 function Products() {
 const cardsData = 
@@ -74,23 +77,44 @@ useEffect(() => {
 
 return (
   <>
-  <Box> <Button onClick={() => showAll()}>Показать всё</Button> 
-        <Button onClick={() => showFav()}>Показать Избранное</Button>
-      <Link to={'/create-product'}>
-      <Button 
-      >Создать</Button></Link>
-        </Box>
-   <Box>
-    <TextField
-              id="outlined-required"
-              label="Поиск"
-               onChange={(e) => search(e.target.value)}
-            />
-    </Box>     
-  <Box><div className="card-list">{cards}</div>
+  <MyHeader></MyHeader>
+  <Box>
+    <span className="Category">Наушники</span>
+    <div className="card-list">{cards}</div>
   <Pagination count={totalPages} page={page} onChange={handlePageChange}/>
-  </Box></>
+  </Box>
 
+{/* Флаттер */}
+<Box className="Flutter">
+<div className="FlutterInfo1"><span>QPICK</span></div>
+<div style={{flexGrow: 1}}></div>
+
+<div className="FlutterInfo2">
+  <span>Избранное</span>
+  <span>Корзина</span>
+  <span>Контакты</span>
+</div>
+<div style={{flexGrow: 1}}></div>
+
+<div className="FlutterInfo3">
+    <span>Условия сервиса</span>
+    <div>
+            {/* <Language></Language> */}
+            <span>Рус</span>
+            <span>Eng</span>
+        </div>
+</div>
+<div style={{flexGrow: 1}}></div>
+
+<div className="FlutterInfo4">
+  <span>Соцсети</span>
+      {/* <VK></VK>
+      <Whatsapp></Whatsapp>
+      <Telegram></Telegram> */}
+    </div>
+</Box>
+
+</>
   );
 }
 
