@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box';
+import { Link } from 'react-router-dom';
 import {ReactComponent as Lang} from '../assets/Lang.svg';
 import {ReactComponent as VK} from '../assets/VK.svg';
 import {ReactComponent as Telegram} from '../assets/Telegram.svg';
@@ -8,12 +9,12 @@ export default function MyFooter({}) {
   //const dispatch = useDispatch(); //всегда первой строчкой
 return (
 <Box className="Footer">
-<div className="FooterCol1"><span>QPICK</span></div>
+<div className="FooterCol1"><Link to="/"><span>QPICK</span></Link></div>
 <div style={{flexGrow: 1}}></div>
 
 <div className="FooterCol2">
   <span>Избранное</span>
-  <span>Корзина</span>
+  <Link to="/basket"><span>Корзина</span></Link>
   <span>Контакты</span>
 </div>
 <div style={{flexGrow: 1}}></div>

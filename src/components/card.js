@@ -14,20 +14,22 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import {ReactComponent as Star} from '../assets/Star.svg';
-
+import { useSelector } from 'react-redux';
 
 export default function MyCard({card, id}) {
   const dispatch = useDispatch(); //всегда первой строчкой
+  const cardsData = useSelector(state => state.cards);
+  const currentItem = cardsData.filter((item) => {return item.id===card.id})[0];
+  const formatted = new Intl.NumberFormat('ru-RU').format(card.price);
+  const addToBasket = () => {
+      dispatch(updateCard(card.id, {
+       countInBasket: currentItem.countInBasket+1,
+       inBasket: true,
+  }));
+  };
 
-  // // const [isfavourite, setisFavourite] = useState(isFav);
-  // // const toggleFav = (isFav) => {
-  // //   dispatch(updateCard(id, {
-  // //    isFav: isFav
-  // //   }));
-  // };
-  // // //  const deleteC = () => {
-  // // //   dispatch(deleteCard(id));
-  // // };
+
+
   return (
     <Card sx={{ width: 350, height:407 }}
       className='card'
@@ -35,22 +37,6 @@ export default function MyCard({card, id}) {
       {/* <Link to={'/products/'+id}> */}
       <img src={card.img}></img>
       <CardContent>
-        {/* <Typography gutterBottom component="div">
-          {title}
-        </Typography>
-        <Typography variant="body2"   sx={{
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    display: '-webkit-box',
-    WebkitLineClamp: 3, // Показывать только 3 строки
-    WebkitBoxOrientation: 'vertical',
-    lineHeight: 1.5, // Для точного расчета высоты
-    maxHeight: '4.5em', // 3 строки * 1.5 line-height
-         }}
-> 
-         {content}
-        </Typography>
-        */}
 
       <div className='CardsInfo'>
         {/* Наименование */}
@@ -61,7 +47,7 @@ export default function MyCard({card, id}) {
         {/* Цена */}
         <div className='ProductPrice'> 
           <span style={{color: '#FFA542'}}>
-            {card.price} ₽
+            {formatted} ₽
           </span>
         </div>
 
@@ -72,21 +58,12 @@ export default function MyCard({card, id}) {
         </div>
 
         {/* Купить */}
-        <span className='ProductBuy'>
+        <span className='ProductBuy' onClick={addToBasket}>
           Купить
         </span>
         
       </div>
       </CardContent>
-      {/* </Link> */}
-      {/* <CardActions>
-        <IconButton aria-label="add to favorites" onClick={() => toggleFav(!isFav)}> 
-          <FavoriteIcon style={{color: isFav && 'red'}}/>
-        </IconButton>
-                <IconButton aria-label="delete-card" onClick={() => deleteC()}> 
-          <DeleteIcon /> 
-        </IconButton>
-              </CardActions> */}
     </Card>
   );
 }

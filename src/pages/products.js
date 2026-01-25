@@ -76,16 +76,16 @@ useEffect(() => {
   
 
 return (
-  <>
+  <div className="mainPage">
   <MyHeader></MyHeader>
   <Box>
     <span className="Category">Наушники</span>
     <div className="card-list">{cards}</div>
-  <Pagination count={totalPages} page={page} onChange={handlePageChange}/>
+  <Pagination count={totalPages} page={page} onChange={handlePageChange} className="stylePagination"/>
   </Box>
   <MyFooter></MyFooter>
 
-</>
+</div>
   );
 }
 

@@ -26,7 +26,7 @@ export default function BasketCard({card}) {
 
 // принудительно обновляет что-то на странице
 useEffect(() => {
-    changeCount(count);
+    if (count>0) {changeCount(count);}
   }, [count]);
 
   return (
@@ -37,9 +37,13 @@ useEffect(() => {
       <img src={card.img} width="180px" height="180px"></img>
       <div className='ProductCount'>
         <button class="round-button"
-            onClick={() => setCount(count-1)}
+            onClick={() => (count-1>0)&& setCount(count-1)}
         >-</button>
+
+        <div style={{flexGrow: 1}}></div>
         {count}
+        <div style={{flexGrow: 1}}></div>
+        
         <button class="round-button"
             onClick={() => setCount(count+1)}
         >+</button>
