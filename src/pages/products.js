@@ -7,8 +7,8 @@ import Pagination from '@mui/material/Pagination'
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
-import {ReactComponent as Korzina} from '../assets/Korzina.svg';
-import {ReactComponent as Fav} from '../assets/Fav.svg';
+import MyFooter from "../components/footer";
+
 
 function Products() {
 const cardsData = 
@@ -83,36 +83,7 @@ return (
     <div className="card-list">{cards}</div>
   <Pagination count={totalPages} page={page} onChange={handlePageChange}/>
   </Box>
-
-{/* Флаттер */}
-<Box className="Flutter">
-<div className="FlutterInfo1"><span>QPICK</span></div>
-<div style={{flexGrow: 1}}></div>
-
-<div className="FlutterInfo2">
-  <span>Избранное</span>
-  <span>Корзина</span>
-  <span>Контакты</span>
-</div>
-<div style={{flexGrow: 1}}></div>
-
-<div className="FlutterInfo3">
-    <span>Условия сервиса</span>
-    <div>
-            {/* <Language></Language> */}
-            <span>Рус</span>
-            <span>Eng</span>
-        </div>
-</div>
-<div style={{flexGrow: 1}}></div>
-
-<div className="FlutterInfo4">
-  <span>Соцсети</span>
-      {/* <VK></VK>
-      <Whatsapp></Whatsapp>
-      <Telegram></Telegram> */}
-    </div>
-</Box>
+  <MyFooter></MyFooter>
 
 </>
   );

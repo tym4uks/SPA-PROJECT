@@ -6,6 +6,8 @@ import Pagination from '@mui/material/Pagination'
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
+import MyHeader from "../components/header";
+import MyFooter from "../components/footer";
 
 function Basket() {
 const cardsData = 
@@ -74,6 +76,8 @@ const cards = [];
   
 
 return (
+  <>
+  <MyHeader></MyHeader>
   <Box className="container_basket">
   <Box> 
     {cards}
@@ -90,7 +94,8 @@ return (
     </div>
     <button style={{padding: '5px', height: "30px"}}>Перейти к оформлению</button>
   </Box></Box>
-
+<MyFooter></MyFooter>
+</>
   );
 }
 

@@ -61,7 +61,7 @@ export default function MyCard({card, id}) {
         {/* Цена */}
         <div className='ProductPrice'> 
           <span style={{color: '#FFA542'}}>
-            {card.price}
+            {card.price} ₽
           </span>
         </div>
 
