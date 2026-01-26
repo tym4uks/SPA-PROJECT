@@ -1,16 +1,13 @@
 import Card from '@mui/material/Card';
 import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
+import {ReactComponent as DeleteIcon} from '../assets/Trash.svg';
 import { useDispatch } from 'react-redux';
 import { updateCard } from '../store/actions/cardActions';
 import React, { useState, useEffect } from 'react';
 
-import {ReactComponent as Star} from '../assets/Star.svg';
-
-
 export default function BasketCard({card}) {
   const dispatch = useDispatch(); //всегда первой строчкой
-
+  const formatted = new Intl.NumberFormat('ru-RU').format(card.price);
   const [count, setCount] = useState(card.countInBasket);
   const changeCount = (count) => {
     dispatch(updateCard(card.id, {
@@ -58,7 +55,7 @@ useEffect(() => {
         {/* Цена */}
         <div> 
           <span style={{color: 'gray'}}>
-            {card.price}
+            {formatted} ₽
           </span>
         </div>
         
@@ -66,18 +63,9 @@ useEffect(() => {
     <IconButton className='delete-icon' onClick={() => deleteFromBasket()}> 
           <DeleteIcon style={{color:'red'}}/> 
     </IconButton>
-    <span className='total-price'>
+    {/* <span className='total-price'>
             {card.price*count}
-    </span>
-      {/* </Link> */}
-      {/* <CardActions>
-        <IconButton aria-label="add to favorites" onClick={() => toggleFav(!isFav)}> 
-          <FavoriteIcon style={{color: isFav && 'red'}}/>
-        </IconButton>
-                <IconButton aria-label="delete-card" onClick={() => deleteC()}> 
-          <DeleteIcon /> 
-        </IconButton>
-              </CardActions> */}
+    </span> */}
     </Card>
   );
 }

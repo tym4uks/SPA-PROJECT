@@ -6,27 +6,26 @@ import {ReactComponent as Telegram} from '../assets/Telegram.svg';
 import {ReactComponent as Whatsapp} from '../assets/Whatsapp.svg';
 
 export default function MyFooter({}) {
-  //const dispatch = useDispatch(); //всегда первой строчкой
 return (
 <Box className="Footer">
 <div className="FooterCol1"><Link to="/"><span>QPICK</span></Link></div>
 <div style={{flexGrow: 1}}></div>
 
 <div className="FooterCol2">
-  <span>Избранное</span>
-  <Link to="/basket"><span>Корзина</span></Link>
-  <span>Контакты</span>
+  <span className='element'>Избранное</span>
+  <Link to="/basket"><span className='element'>Корзина</span></Link>
+  <span className='element'>Контакты</span>
 </div>
 <div style={{flexGrow: 1}}></div>
 
 <div className="FooterCol3">
-    <span>Условия сервиса</span>
+    <span className='element'>Условия сервиса</span>
     <div className='LangStyle'>
             <Lang></Lang>
             <div style={{flexGrow: 1}}></div>
-            <span>Рус</span>
+            <span className='element'>Рус</span>
             <div style={{flexGrow: 1}}></div>
-            <span>Eng</span>
+            <span className='element'>Eng</span>
             <div style={{flexGrow: 1}}></div>
         </div>
 </div>
@@ -34,12 +33,11 @@ return (
 
 <div className="FooterCol4">
   <div className='LangStyle'>
-      <VK className='iconStyle'></VK>
+      <a href="https://vk.com/neoflex_ru"><VK className='iconStyle'></VK></a>
       <div style={{flexGrow: 1}}></div>
       <Whatsapp className='iconStyle'></Whatsapp>
       <div style={{flexGrow: 1}}></div>
-      <Telegram className='iconStyle'></Telegram>
-      
+      <a href="https://t.me/neoflexcareers"><Telegram className='iconStyle'></Telegram></a>
     </div>
     </div>
 </Box>

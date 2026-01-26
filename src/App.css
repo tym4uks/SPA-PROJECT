@@ -1,22 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 body{
+font-family: "Montserrat", sans-serif !important;
 background-color: #EAEAEA;
+
 }
 .mainPage{
   position: relative;
   min-height: 100vh;
+  min-width: 80vw;
 }
 
 .container_basket{
   display: flex;
   flex-direction: row;
-  width: 1400px;
+  width: 80vw;
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
   overflow-y: scroll;
-  height: 1000px;
+  height: 80vh;
+  max-width: 80vw;
 }
-
 
 .basket_card{
   border-radius: 30px !important;
@@ -29,10 +34,12 @@ background-color: #EAEAEA;
 }
 .currentCost{
   background-color: #fff;
+  
   border-radius: 30px !important;
   padding-top: 20px;
   width: 300px;
   height: 100px;
+  margin-right: 20px;
 }
 
 .currentCost>button{
@@ -50,7 +57,8 @@ background-color: #EAEAEA;
   right:20px !important;
 }
 .delete-icon:hover{
-  background-color: #e6e6e6 !important;
+  filter: drop-shadow(0 0 8px rgba(52, 152, 219, 0.7));
+  transform: scale(1.05);
 }
 
 .total-price{
@@ -87,11 +95,16 @@ background-color: #EAEAEA;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
+.round-button:hover{
+  filter: drop-shadow(0 0 8px rgba(52, 152, 219, 0.7));
+  transform: scale(1.05);
+}
+
 .counter{
   position: absolute;
   bottom: -3px;
   right: -6px;
-    width: 20px;
+  width: 20px;
   height: 20px;
   border-radius: 50%;
   background-color: #FFD700; /* желтый цвет */
@@ -109,17 +122,17 @@ background-color: #EAEAEA;
 
 .Header{
   position: relative;
-  max-width: 1400px;
   top: 10px;
   height: 20px;
   margin-top: 20px;
   margin: auto; 
+  width: 80vw;
 }
 .Header svg{
 margin-left: 20px;
 }
 
-.Icon{
+.IconBox{
   position: absolute;
   right: 5px;
   display: flex;
@@ -127,19 +140,44 @@ margin-left: 20px;
   flex-direction: row;
 }
 
-.QTitle{
-position: absolute;
-font-family: Montserrat;
-font-weight: 700;
-font-style: Bold;
-font-size: 25px;
-line-height: 100%;
-letter-spacing: 0%;
-color: #101010;
+.iconStyle{
+height: 25px;
+width: 25px;
+margin-right: 15px;
 }
 
+.iconStyle:hover{
+  filter: drop-shadow(0 0 8px rgba(52, 152, 219, 0.7));
+  transform: scale(1.05);
+}
+
+.QTitle{
+position: absolute;
+font-style: bold;
+font-weight: 700;
+font-size: 25px;
+line-height: 100%;
+color: #101010;
+}
+.QTitle:hover{
+  text-decoration: underline;
+  
+}
+
+.styleButton{
+padding: 5px; 
+height: 30px;
+font-size: 20px;
+}
+.styleButton:hover{
+  background-color: #f1e6a4;
+  color: #101010;
+  cursor: pointer;
+
+}
+
+
 .Category{
-font-family: Montserrat;
 font-weight: 600;
 font-style: Bold;
 font-size: 20px;
@@ -148,7 +186,7 @@ letter-spacing: 0%;
 color: #838383;
 margin: auto;
 display: block;
-width: 1400px;
+width: 80vw;
 margin-top: 30px;
 margin-bottom: 10px;
 }
@@ -158,7 +196,8 @@ margin-bottom: 10px;
   flex-wrap: wrap;
   gap: 50px;
   margin: auto;
-  max-width: 1400px;
+  max-width: 80vw;
+
 }
 
 .CardsInfo {
@@ -167,7 +206,6 @@ margin-bottom: 10px;
   height: 70px;
 }
 .ProductTitleBasket{
-  font-family: Palatino Linotype; 
   font-weight: 600;
   font-style: Bold;
   font-size: 17px;
@@ -178,7 +216,6 @@ margin-bottom: 10px;
   position: absolute;
   top: 5px;
   left: 5px;
-font-family: Palatino Linotype; 
 font-weight: 600;
 font-style: Bold;
 font-size: 17px;
@@ -192,7 +229,6 @@ letter-spacing: 0%;
   right: 5px;
   display: flex;
   flex-direction: column;
-/* font-family: ; */
 font-weight: 600;
 font-style: Bold;
 font-size: 17px;
@@ -208,7 +244,6 @@ letter-spacing: 0%;
   display: flex;
   align-items: center;
   flex-direction: row;
-/* font-family: ; */
 font-weight: 600;
 font-style: Bold;
 font-size: 17px;
@@ -221,14 +256,11 @@ letter-spacing: 0%;
   position: absolute;
   bottom: 5px;
   right: 5px;
-  /* font-family: ; */
 font-weight: 600;
-/* font-style: ; */
 font-size: 17px;
 line-height: 100%;
 letter-spacing: 0%;
 }
-
 .ProductBuy:hover{
   font-size: 20px;
   cursor: pointer;
@@ -251,18 +283,23 @@ position: relative;
 
 .Footer{
 position: absolute;
+
 left: 50%;
 transform: translateX(-50%);
 bottom: 0px;
 width: 80vw;
-margin: auto; 
+margin-top: auto; 
 background-color: white;
 border-top-left-radius: 30px;
 border-top-right-radius: 30px;
 padding: 30px;
 display: flex;
 flex-direction: row;
-
+}
+.Footer .element:hover
+{
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .stylePagination{
@@ -275,16 +312,20 @@ margin: auto;
   display: flex;
   flex-direction: column;
 }
+
 .FooterCol2{
   max-width: 200px;
   display: flex;
   flex-direction: column;
 }
+
 .FooterCol3{
   max-width: 200px;
   display: flex;
   flex-direction: column;
 }
+
+
 .FooterCol4{
   max-width: 200px;
   display: flex;
@@ -296,11 +337,7 @@ margin: auto;
   flex-direction: row;
 }
 
-.iconStyle{
-height: 25px;
-width: 25px;
-margin-right: 15px;
-}
+
 
 
 

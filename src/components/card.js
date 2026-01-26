@@ -1,20 +1,19 @@
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-
-import IconButton from '@mui/material/IconButton';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch } from 'react-redux';
 import { updateCard, deleteCard } from '../store/actions/cardActions';
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
 import {ReactComponent as Star} from '../assets/Star.svg';
 import { useSelector } from 'react-redux';
+
+// import CardActions from '@mui/material/CardActions';
+// import CardMedia from '@mui/material/CardMedia';
+// import Button from '@mui/material/Button';
+// import Typography from '@mui/material/Typography';
+// import IconButton from '@mui/material/IconButton';
+// import FavoriteIcon from '@mui/icons-material/Favorite';
+// import DeleteIcon from '@mui/icons-material/Delete';
+// import React, { useState } from 'react';
+// import { Link } from 'react-router-dom';
 
 export default function MyCard({card, id}) {
   const dispatch = useDispatch(); //всегда первой строчкой
@@ -28,17 +27,14 @@ export default function MyCard({card, id}) {
   }));
   };
 
-
-
   return (
-    <Card sx={{ width: 350, height:407 }}
-      className='card'
-    >
+    <Card sx={{ width: 350, height:407 }} className='card'>
       {/* <Link to={'/products/'+id}> */}
       <img src={card.img}></img>
-      <CardContent>
 
+      <CardContent>
       <div className='CardsInfo'>
+        
         {/* Наименование */}
         <span className='ProductTitle'>
         {card.title}

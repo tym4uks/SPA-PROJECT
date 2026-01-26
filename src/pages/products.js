@@ -2,11 +2,8 @@ import MyCard from "../components/card";
 import MyHeader from "../components/header";
 import { useSelector } from 'react-redux';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Pagination from '@mui/material/Pagination'
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import TextField from '@mui/material/TextField';
 import MyFooter from "../components/footer";
 
 
@@ -26,6 +23,7 @@ const startIndex = (page - 1) * itemsPerPage;
   
   const handlePageChange = (event, value) => {
     setPage(value);
+
     // Прокрутка вверх при смене страницы
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -38,7 +36,6 @@ const cards = [];
         card={currentItems[i]}
         id={currentItems[i].id}
         />
-
     );
   }
 
@@ -61,17 +58,13 @@ const search=(searchTerm) => {
  setfilteredData(data);
 };
 
-
-
 // принудительно обновляет что-то на странице
 useEffect(() => {
     if (isFavFiltred){
         setfilteredData(cardsData.filter(item => item.isFav));
     } else{
         setfilteredData(cardsData);
-    }
-    
-    
+    } 
   }, [cardsData]);
   
 
@@ -84,8 +77,7 @@ return (
   <Pagination count={totalPages} page={page} onChange={handlePageChange} className="stylePagination"/>
   </Box>
   <MyFooter></MyFooter>
-
-</div>
+  </div>
   );
 }
 
