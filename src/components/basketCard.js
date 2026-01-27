@@ -6,7 +6,7 @@ import { updateCard } from '../store/actions/cardActions';
 import React, { useState, useEffect } from 'react';
 
 export default function BasketCard({card}) {
-  const dispatch = useDispatch(); //всегда первой строчкой
+  const dispatch = useDispatch(); 
   const formatted = new Intl.NumberFormat('ru-RU').format(card.price);
   const [count, setCount] = useState(card.countInBasket);
   const changeCount = (count) => {
@@ -21,7 +21,7 @@ export default function BasketCard({card}) {
     }));
   };
 
-// принудительно обновляет что-то на странице
+
 useEffect(() => {
     if (count>0) {changeCount(count);}
   }, [count]);
@@ -63,9 +63,9 @@ useEffect(() => {
     <IconButton className='delete-icon' onClick={() => deleteFromBasket()}> 
           <DeleteIcon style={{color:'red'}}/> 
     </IconButton>
-    {/* <span className='total-price'>
-            {card.price*count}
-    </span> */}
+    <span className='total-price'>
+            {new Intl.NumberFormat('ru-RU').format(card.price*count)} ₽
+    </span>
     </Card>
   );
 }

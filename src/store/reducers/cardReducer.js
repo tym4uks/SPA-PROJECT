@@ -1,7 +1,5 @@
-//Конфигурационный файл
 import { CARD_ACTION_TYPES } from '../constans/actionTypes'
 
-// Начальное состояние
 const initialState = {
   cards: [
     {
@@ -10,8 +8,8 @@ const initialState = {
       title: 'Apple BYZ S852I',
       price: '2927',
       rate: 4.7,
-      inBasket: true,
-      countInBasket: 1,
+      inBasket: false,
+      countInBasket: 0,
     },
     {
       id: 2,
@@ -19,8 +17,8 @@ const initialState = {
       title: 'Apple EarPods',
       price: '2327',
       rate: 4.5,
-      inBasket: true,
-      countInBasket: 2,
+      inBasket: false,
+      countInBasket: 0,
     },
     {
       id: 3,
@@ -61,21 +59,8 @@ const initialState = {
   ]
 }
 
-// Reducer
 const cardReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CARD_ACTION_TYPES.ADD_CARD:
-      return {
-        ...state,
-        cards: [...state.cards, action.payload]
-      }
-
-    case CARD_ACTION_TYPES.DELETE_CARD:
-      return {
-        ...state,
-        cards: state.cards.filter(card => card.id !== action.payload)
-      }
-
     case CARD_ACTION_TYPES.UPDATE_CARD:
       console.log(action.payload.cardId)
       console.log(action.payload.updates)
@@ -87,8 +72,6 @@ const cardReducer = (state = initialState, action) => {
             : card
         )               
       }
-
-
 
     default:
       return state

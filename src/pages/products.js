@@ -12,7 +12,7 @@ const cardsData =
     useSelector(state => state.cards);
 
 const [page, setPage] = useState(1);
-  const itemsPerPage = 3; // Количество карточек на странице
+  const itemsPerPage = 3;
   const [filtredData, setfilteredData] = useState(cardsData);
 const [isFavFiltred, setIsFavFiltred] = useState(false);
  
@@ -23,8 +23,6 @@ const startIndex = (page - 1) * itemsPerPage;
   
   const handlePageChange = (event, value) => {
     setPage(value);
-
-    // Прокрутка вверх при смене страницы
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -58,7 +56,6 @@ const search=(searchTerm) => {
  setfilteredData(data);
 };
 
-// принудительно обновляет что-то на странице
 useEffect(() => {
     if (isFavFiltred){
         setfilteredData(cardsData.filter(item => item.isFav));

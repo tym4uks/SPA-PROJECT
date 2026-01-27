@@ -5,18 +5,8 @@ import { updateCard, deleteCard } from '../store/actions/cardActions';
 import {ReactComponent as Star} from '../assets/Star.svg';
 import { useSelector } from 'react-redux';
 
-// import CardActions from '@mui/material/CardActions';
-// import CardMedia from '@mui/material/CardMedia';
-// import Button from '@mui/material/Button';
-// import Typography from '@mui/material/Typography';
-// import IconButton from '@mui/material/IconButton';
-// import FavoriteIcon from '@mui/icons-material/Favorite';
-// import DeleteIcon from '@mui/icons-material/Delete';
-// import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
-
 export default function MyCard({card, id}) {
-  const dispatch = useDispatch(); //всегда первой строчкой
+  const dispatch = useDispatch(); 
   const cardsData = useSelector(state => state.cards);
   const currentItem = cardsData.filter((item) => {return item.id===card.id})[0];
   const formatted = new Intl.NumberFormat('ru-RU').format(card.price);
@@ -29,7 +19,6 @@ export default function MyCard({card, id}) {
 
   return (
     <Card sx={{ width: 350, height:407 }} className='card'>
-      {/* <Link to={'/products/'+id}> */}
       <img src={card.img}></img>
 
       <CardContent>
